@@ -18,5 +18,5 @@ def sign():
 
         flash("Thanks for registering")
         return render_template("home.html")
-    
-    return render_template("sign.html")
+
+    return render_template("sign.html", form=form)
