@@ -1,5 +1,78 @@
 {% extends "layout.html" %}
 
 {% block a %}
+    <form class="form-signin mt-4" method="POST" action="">
+    {{ form.hidden_tag() }}
 
+    <div class="form-label-group">
+
+        {{ form.email.label() }}
+        {% if form.email.errors %}
+            {{ form.email( class="form-control is-invalid mb-3") }}
+
+            <div class="invalid-feedback">
+
+                {% for error in form.email.errors %}
+
+                <span>{{ error }}</span>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+        {{ form.email( class="form-control mb-3") }}
+
+        {% endif %}
+
+
+
+    </div>
+
+
+
+    <div class="form-label-group">
+
+        {{ form.confirm_email.label() }}
+
+
+
+        {% if form.confirm_email.errors %}
+
+        {{ form.confirm_email( class="form-control is-invalid mb-3") }}
+
+        <div class="invalid-feedback">
+
+            {% for error in form.confirm_email.errors %}
+
+            <span>{{ error }}</span>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        {{ form.confirm_email( class="form-control mb-3") }}
+
+        {% endif %}
+
+
+
+    </div>
+
+    <div class="form-check">
+
+        {{ form.remember(class="custom-control-input mb-3") }}
+
+        {{ form.remember.label(class="custom-control-label ml-3 mb-4") }}
+
+    </div>
+
+
+
+    {{ form.submit(class="btn btn-lg btn-primary btn-block text-uppercase") }}
+
+</form>
 {% endblock a %}
